@@ -1,0 +1,67 @@
+package com.kellonge.exhibition.admin.action.system;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+
+import com.kellonge.exhibition.admin.action.base.BaseServiceAction;
+import com.kellonge.exhibition.common.config.ConfigUtil;
+import com.kellonge.exhibition.common.lang.CLang;
+import com.kellonge.exhibition.common.lang.ResourceUtil;
+
+public class CoreAction extends BaseServiceAction {
+
+	@Action(value = "/service/core/getserverversion", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String getserverversion() {
+		resultVo.setSuccess(ConfigUtil.getProperties("sys.version"), null);
+		return SUCCESS;
+	}
+
+	@Action(value = "/service/core/getlangs", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String getlangs() {
+		resultVo.setSuccess(CLang.getLangs(), null);
+		return SUCCESS;
+	}
+
+	@Action(value = "/service/core/getcurrentlang", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String getcurrentlang() {
+		resultVo.setSuccess(CLang.getCurrentLangID(), null);
+		return SUCCESS;
+	}
+
+	@Action(value = "/service/core/getresources", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String getresources() {
+		Map<String, String> resourcesMap = ResourceUtil.getAllResources();
+		List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
+		if (resourcesMap != null && !resourcesMap.isEmpty()) {
+			Set<String> keyList = resourcesMap.keySet();
+			for (String key : keyList) {
+				String value = resourcesMap.get(key);
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("Key", key);
+				map.put("Value", value);
+				mapList.add(map);
+			}
+		}
+		resultVo.setSuccess(mapList, null);
+		return SUCCESS;
+	}
+	
+	@Action(value = "/service/core/islogin", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String islogin() {
+		resultVo.setSuccess(CurrentInfo.checkAccess(), null);
+		return SUCCESS;
+	}
+	
+	@Action(value = "/service/core/getcurrentlang", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String getcurrentlang() {
+		resultVo.setSuccess(CLang.getCurrentLangID(), null);
+		return SUCCESS;
+	}
+}

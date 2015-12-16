@@ -1,0 +1,12 @@
+﻿<script src="../member/online.js"></script>
+<div id="OnlineResult"></div>
+<script id="OnlineResultTemplate" type="text/html">
+	<ul>
+		<%
+		for(i = 0; i < data.length; i ++) {
+			var row = data[i];
+		%>
+		<li class="read_yes" style="margin-top:10px;margin-right:10px;cursor:pointer;float:left;padding:5px;" onclick="COnline.openView('<%=row.ID%>')"><%=row.username%>[<%=row.departmentName%>]</li>
+		<%}%>
+	</ul>
+</script>

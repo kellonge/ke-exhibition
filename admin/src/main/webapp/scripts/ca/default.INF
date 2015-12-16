@@ -1,0 +1,13 @@
+[version]
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+[Add.Code]
+JITDSign.ocx=JITDSign.ocx
+
+[JITDSign.ocx]
+file=thiscab
+RegisterServer=yes
+clsid={06CA9432-D9BD-4867-8475-770B131E1759}
+DestDir=11
+FileVersion=2,0,24,4

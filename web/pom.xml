@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.kellonge</groupId>
+    <artifactId>exhibition</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>web</artifactId>
+  <packaging>war</packaging>
+  <name>web</name>
+  <build>
+    <finalName>web</finalName>
+  </build>
+  
+	<dependencies>
+		<dependency>
+			<groupId>com.kellonge</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kellonge</groupId>
+			<artifactId>model</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.kellonge</groupId>
+			<artifactId>business</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+</project>
