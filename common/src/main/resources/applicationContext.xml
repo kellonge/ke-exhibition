@@ -11,9 +11,10 @@
 	<!-- 注解扫描 -->
 	<context:annotation-config />
 	<context:component-scan base-package="com.kellonge.exhibition" />
-	
-	<!-- 获取上下文  -->
-	<bean id="appContext" class="com.kellonge.exhibition.common.context.AppContext" lazy-init="false" />
+
+	<!-- 获取上下文 -->
+	<bean id="appContext" class="com.kellonge.exhibition.common.context.AppContext"
+		lazy-init="false" />
 
 	<!-- 加载properties配置文件 -->
 	<bean id="propertyConfigurer"
@@ -69,8 +70,7 @@
 			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="del*" propagation="REQUIRED" />
-			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="*" propagation="SUPPORTS" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>

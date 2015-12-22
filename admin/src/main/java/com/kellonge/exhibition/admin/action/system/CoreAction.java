@@ -52,16 +52,16 @@ public class CoreAction extends BaseServiceAction {
 		resultVo.setSuccess(mapList, null);
 		return SUCCESS;
 	}
-	
+
 	@Action(value = "/service/core/islogin", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
 	public String islogin() {
 		resultVo.setSuccess(CurrentInfo.checkAccess(), null);
 		return SUCCESS;
 	}
-	
-	@Action(value = "/service/core/getcurrentlang", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
-	public String getcurrentlang() {
-		resultVo.setSuccess(CLang.getCurrentLangID(), null);
+
+	@Action(value = "/service/core/isadmin", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
+	public String isadmin() {
+		resultVo.setSuccess(CurrentInfo.IsAdmin(getParameter("username")), null);
 		return SUCCESS;
 	}
 }

@@ -18,6 +18,7 @@ public class Dict {
 	private Date createTime;
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
 		return id;

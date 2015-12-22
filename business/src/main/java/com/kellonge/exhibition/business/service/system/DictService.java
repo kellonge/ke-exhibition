@@ -15,5 +15,7 @@ public interface DictService {
 	public void update(Dict dict);
 
 	public List<Dict> getList();
+	
+	public void xsaveTransaction();
 
 }
