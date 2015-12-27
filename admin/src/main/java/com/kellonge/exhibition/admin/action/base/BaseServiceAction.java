@@ -14,7 +14,7 @@ import com.kellonge.exhibition.model.vo.system.AjaxResult;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
-@ParentPackage(value = "json-default")
+@ParentPackage(value = "ajax")
 @Namespace("/")
 public class BaseServiceAction extends ActionSupport {
 	public static Logger logger = Logger.getLogger(BaseServiceAction.class);

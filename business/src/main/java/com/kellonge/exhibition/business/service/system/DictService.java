@@ -60,5 +60,7 @@ public interface DictService  extends BaseService<Dict>{
 	public int getMaxSequence(int nParentID);
 
 	public Dict getNewDict();
+	
+	public void saveTransaction()  ;
 
 }

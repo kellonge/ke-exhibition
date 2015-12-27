@@ -4,7 +4,7 @@
 
 <struts>
 	<!-- 开启使用开发模式，详细错误提示 -->
-	<constant name="struts.devMode" value="false" />
+	<constant name="struts.devMode" value="true" />
 	<!-- 将对象交给spring管理 -->
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 指定资源编码类型 -->
@@ -18,4 +18,17 @@
 	<constant name="struts.action.extension" value="do,action,jhtml,," />
 	<!-- Struts Annotation -->
 	<constant name="actionPackages" value="org.chinasb.framework.modules" />
+
+
+	<package name="ajax" extends="json-default">
+		<global-results>
+			<result name="root" type="json">
+				<param name="root">resultVo</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="root" />
+		</global-exception-mappings>
+	</package>
 </struts>

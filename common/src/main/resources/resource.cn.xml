@@ -222,11 +222,8 @@
 	<data name="Common_View">
 		<value>%s浏览</value>
 	</data>
-	<data name="Dict_128">
-		<value>所得税</value>
-	</data>
-	<data name="Dict_129">
-		<value>1</value>
+	<data name="Common_Version">
+		<value>v1.0</value>
 	</data>
 	<data name="Member_AgreeTerms">
 		<value>我同意使用条款和协议</value>

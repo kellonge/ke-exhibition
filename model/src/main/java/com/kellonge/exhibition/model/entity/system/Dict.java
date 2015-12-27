@@ -24,7 +24,7 @@ public class Dict implements Cloneable {
 	private String extension;
 	private String memo;
 	private Integer sequenceNo;
-	private Integer parentID;
+	private Integer parentID = 0;
 	private String parentName;
 	private Integer statusID;
 	private Integer isReadonly;
@@ -95,7 +95,7 @@ public class Dict implements Cloneable {
 	public void setStatusID(Integer statusID) {
 		this.statusID = statusID;
 	}
-	
+
 	@Override
 	public Object clone() {
 		try {

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
@@ -14,6 +15,7 @@ import org.apache.struts2.convention.annotation.Result;
 import com.kellonge.exhibition.admin.action.base.BaseServiceAction;
 import com.kellonge.exhibition.business.service.user.UserService;
 import com.kellonge.exhibition.common.config.ConfigUtil;
+import com.kellonge.exhibition.common.context.HttpContext;
 import com.kellonge.exhibition.common.lang.CLang;
 import com.kellonge.exhibition.common.lang.ResourceUtil;
 
@@ -36,6 +38,7 @@ public class CoreAction extends BaseServiceAction {
 
 	@Action(value = "/service/core/getcurrentlang", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
 	public String getcurrentlang() {
+		HttpServletRequest request = (HttpServletRequest) HttpContext.CurrentRequest.get();
 		resultVo.setSuccess(CLang.getCurrentLangID(), null);
 		return SUCCESS;
 	}

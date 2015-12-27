@@ -25,7 +25,7 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 	private ArrayList<Integer> allDictIDs = null;
 	private String LangCodeSequenceNo = "";
 	private String LangCodeSequenceID = "";
- 
+
 	public String getDictNamesByIDs(String strDictIDs) {
 		String strNames = "";
 		if (strDictIDs != null && !"".equals(strDictIDs)) {
@@ -77,7 +77,7 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 	// / 取得所有字典对象
 	// / </summary>
 	// / <returns></returns>
-	
+
 	private List<Dict> getAllDictsSortByID() {
 		if (allDictsSortByID == null) {
 			allDictsSortByID = (List<Dict>) getList(" select * from dict order by id ", Dict.class);
@@ -96,7 +96,6 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 		return allDictsSortByID;
 	}
 
-	
 	private ArrayList<Integer> getAllDictIDs() {
 		if (allDictIDs == null) {
 			allDictIDs = new ArrayList<Integer>();
@@ -180,7 +179,7 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 	// / 根据ID取得一个字典档
 	// / </summary>
 	// / <param name="strDictID"></param>
-	// / <returns></returns>	
+	// / <returns></returns>
 	@SuppressWarnings("unchecked")
 	public Dict getDictByID(Integer nDictID) {
 		Dict dict = null;
@@ -221,7 +220,7 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 	// 设置编码
 	private Dict setCode(Dict dict) {
 		// 根据ParentID和CategoryID取得当前级别最大的编码
-		Map<String, Object> map = getMap(" SELECT MAX(code) as code FROM dict  WHERE parentID = ? ", dict.getId());
+		Map<String, Object> map = getMap(" SELECT MAX(code) as code FROM dict  WHERE parentID = ? ", dict.getParentID());
 		String strCode = ConvertUtil.toString(map.get("code"));
 		// 如果当前级别最大编码不存在,则设置为ParentCode + 0001
 		if (StringUtils.isEmpty(strCode) || strCode.length() < 4) {
@@ -290,6 +289,15 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 		Object strMaxID = map.get("id");
 		int nID = ConvertUtil.toInt(strMaxID, -1);
 		return getDictFromDB(nID);
+	}
+
+	public void saveTransaction() {
+		Dict dict = new Dict();
+		dict.setName("sfds");
+		saveDict(dict);
+		dict = new Dict();
+		saveDict(dict);
+
 	}
 
 }
