@@ -15,7 +15,7 @@ public class CLang {
 	public static final String SessionKey_Lang = "LanguageVersion";
 	private static final long serialLangUID = 3640916850392743522L;
 	private Integer ID;
-	private String name;
+	private String name;	
 	private String language;
 	private static List<CLang> langs = null;
 

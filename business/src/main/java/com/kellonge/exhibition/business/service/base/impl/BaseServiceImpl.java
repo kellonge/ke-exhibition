@@ -1,6 +1,5 @@
-package com.kellonge.exhibition.business.dao.base.impl;
+package com.kellonge.exhibition.business.service.base.impl;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,9 +11,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 
-import com.kellonge.exhibition.business.dao.base.BaseDao;
+import com.kellonge.exhibition.business.service.base.BaseService;
 
-public class BaseDaoImpl<T> implements BaseDao<T> {
+public class BaseServiceImpl<T> implements BaseService<T> {
 
 	@Resource
 	SessionFactory sessionFactory;
@@ -42,7 +41,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	}
 
-	public T getById(Class<T> c, Serializable id) {
+	public T getById(Class<T> c, Integer id) { 
 		return getCurrentSession().get(c, id);
 	}
 

@@ -1,8 +1,6 @@
 package com.kellonge.exhibition.common.config;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

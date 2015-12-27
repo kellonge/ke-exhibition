@@ -2,20 +2,25 @@ package com.kellonge.exhibition.admin.action.system;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Resource;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.kellonge.exhibition.admin.action.base.BaseServiceAction;
+import com.kellonge.exhibition.business.service.user.UserService;
 import com.kellonge.exhibition.common.config.ConfigUtil;
 import com.kellonge.exhibition.common.lang.CLang;
 import com.kellonge.exhibition.common.lang.ResourceUtil;
 
 public class CoreAction extends BaseServiceAction {
+	
+	@Resource
+	UserService userService;
 
 	@Action(value = "/service/core/getserverversion", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
 	public String getserverversion() {
@@ -55,13 +60,13 @@ public class CoreAction extends BaseServiceAction {
 
 	@Action(value = "/service/core/islogin", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
 	public String islogin() {
-		resultVo.setSuccess(CurrentInfo.checkAccess(), null);
+		resultVo.setSuccess(userService.checkAccess(), null);
 		return SUCCESS;
 	}
 
 	@Action(value = "/service/core/isadmin", results = { @Result(type = "json", name = SUCCESS, params = { "root", "resultVo" }) })
 	public String isadmin() {
-		resultVo.setSuccess(CurrentInfo.IsAdmin(getParameter("username")), null);
+		resultVo.setSuccess(userService.IsAdmin(getParameter("username")), null);
 		return SUCCESS;
 	}
 }

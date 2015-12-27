@@ -1,10 +1,9 @@
-package com.kellonge.exhibition.business.dao.base;
+package com.kellonge.exhibition.business.service.base;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public interface BaseDao<T> {
+public interface BaseService<T> {
 
 	/**
 	 * 保存一个对象
@@ -42,7 +41,7 @@ public interface BaseDao<T> {
 	 * @param id
 	 * @return 对象
 	 */
-	public T getById(Class<T> c, Serializable id);
+	public T getById(Class<T> c, Integer id);
 
 	/**
 	 * 通过sql语句获取对象

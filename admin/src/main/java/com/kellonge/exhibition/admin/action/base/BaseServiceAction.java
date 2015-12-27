@@ -25,24 +25,10 @@ public class BaseServiceAction extends ActionSupport {
 	public AjaxResult resultVo=new AjaxResult();
 	
 	
- 
-	protected void page(String object) {
-		HttpContext.page(object);
-	}
-	
 	protected String getParameter(String strParameter){
-		return HttpContext.getParameter(strParameter);
+		return request.getParameter(strParameter);
 	}
 	
-	protected void redirectToLogin(){
-		
-		//HttpContext.redirect(Utility.getLoginPath());
-	}
-	
-	protected void service() {
-		if (CurrentInfo.checkAccess() == false) {
-			redirectToLogin();
-		}
-	}
+	 
 
 }

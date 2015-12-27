@@ -1,10 +1,13 @@
 package com.kellonge.exhibition.model.entity.user;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,7 +20,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "member")
 public class Member implements Serializable {
 
-	private String id;
+	private Integer id;
 	private String password;
 	private String username;
 	private String mobile;
@@ -31,12 +34,13 @@ public class Member implements Serializable {
 	private String clientIP;
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
