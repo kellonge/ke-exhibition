@@ -1,1 +1,0 @@
-﻿document.location.href="pages/common/login.htm";

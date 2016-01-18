@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
-	<display-name>admin</display-name>
+	<display-name>web</display-name>
 	<!-- spring -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener
@@ -34,5 +34,6 @@
 
 	<welcome-file-list>
 		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index</welcome-file>
 	</welcome-file-list>
 </web-app>

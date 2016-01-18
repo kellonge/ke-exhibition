@@ -34,18 +34,8 @@ public class ConfigUtil {
 		return properties.getProperty(key);
 	}
 
-	public static String getRealResourcePath() {
-		return getClassPath();
-	}
-
-	public static String getRealLangPath(String strLangCode) {
-		return getRealResourcePath() + "resource" + "." + strLangCode + ".xml";
-	}
-
 	public static void main(String[] args) {
 		System.out.println(getClassPath());
-		System.out.println(getRealResourcePath());
-		System.out.println(getRealLangPath("cn"));
 	}
 
 }
