@@ -1,28 +1,44 @@
 package com.kellonge.exhibition.web.action;
 
+import javax.annotation.Resource;
+
+import com.kellonge.exhibition.business.service.event.EventService;
+import com.kellonge.exhibition.business.service.system.CityService;
+import com.kellonge.exhibition.web.action.base.BaseAction;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class IndexAction extends ActionSupport {
+public class IndexAction extends BaseAction {
 
-	private String msg;
+	@Resource
+	CityService cityService;
+	@Resource
+	EventService eventService;
+
+	private Integer page = 0;
+	private Integer cityID = 864;
 
 	@Override
 	public String execute() throws Exception {
-		msg = "index excute";
+		pageData.put("city", cityService.getList());
+		pageData.put("event", eventService.getEventList(cityID, page));
 		return SUCCESS;
 
 	}
 
-	public String method() {
-		msg = "method in action";
-		return SUCCESS;
+	public Integer getPage() {
+		return page;
 	}
 
-	public String getMsg() {
-		return msg;
+	public void setPage(Integer page) {
+		this.page = page;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public Integer getCityID() {
+		return cityID;
 	}
+
+	public void setCityID(Integer cityID) {
+		this.cityID = cityID;
+	}
+
 }

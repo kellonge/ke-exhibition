@@ -12,6 +12,10 @@ public class ConfigUtil {
 	private static Logger logger = Logger.getLogger(ConfigUtil.class);
 	private static Properties properties;
 
+	private static boolean devMode;
+	private static String imgHost;
+	private static String host;
+
 	static {
 		load();
 	}
@@ -21,6 +25,9 @@ public class ConfigUtil {
 			InputStream in = new FileInputStream(getClassPath() + "config.properties");
 			properties = new Properties();
 			properties.load(in);
+			imgHost = properties.getProperty("biz.img.host");
+			host = properties.getProperty("sys.host");
+			devMode = properties.getProperty("sys.devmode").equals("debug");
 		} catch (IOException e) {
 			logger.warn(e);
 		}
@@ -32,6 +39,18 @@ public class ConfigUtil {
 
 	public static String getProperties(String key) {
 		return properties.getProperty(key);
+	}
+
+	public static boolean getDevMode() {
+		return devMode;
+	}
+
+	public static String getImgHost() {
+		return imgHost;
+	}
+
+	public static String getHost() {
+		return host;
 	}
 
 	public static void main(String[] args) {

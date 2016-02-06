@@ -41,7 +41,7 @@ public interface BaseService<T> {
 	 * @param id
 	 * @return 对象
 	 */
-	public T getById(Class<T> c, Integer id);
+	public T getByID(Class<T> c, Integer id);
 
 	/**
 	 * 通过sql语句获取对象

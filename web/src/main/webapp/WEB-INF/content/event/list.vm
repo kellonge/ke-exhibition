@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%
+	String path = request.getContextPath();
+%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="<%=path%>/h5/css/core.css" type="text/css">
+<script type="text/javascript" src="<%=path%>/h5/js/core.js"></script>
+<title>动享网</title>
+<style type="text/css">
+.coupon{
+    position: absolute;
+    top: 40%;
+    width: 36%;
+    height: 10%;
+    margin-left: -10%;
+    left: 50%;
+    color: #fffffe;
+    line-height: 25px;
+    text-align: center;
+}
+.coupon .price{
+	font-size: 24px;
+    text-align: center;
+}
+.coupon .desc{
+    font-size: 12px;
+}
+</style>
+</head>
+<body style="background-color: #ededed;">
+	<c:choose>
+		<c:when test="${pageData.result==null}">
+			<form id="form" style="    position: relative;" method="post"action="<%=path%>/h5/coupon/share?ordenno=<%=request.getParameter("ordenno")%>">
+				<img  src="<%=path %>/h5/img/coupon/bg_input_tel.png" style="width: 100%" /> 
+				<input type="text" name="tel" placeholder="请填写手机号" style="position: absolute;   bottom: 40%;   width: 56%;    height: 5%;    margin-left: -30%;    left: 50%;    border-radius: 4px;    padding: 5px;    font-size: 14px;    color: #565656;    border: none;"/> 
+				<div onclick="form.submit()" style="position: absolute;    bottom: 29%;width: 44%;    height: 7%;    margin-left: -22%;    left: 50%;"></div>
+			</form>		
+		</c:when>
+		<c:otherwise>
+			<div style="position: relative;">
+				<c:choose>
+					<c:when test="${pageData.result.msg=='1'}">
+						<img  src="<%=path %>/h5/img/coupon/bg_coupon_result_success.png" style="width: 100%" />		
+					</c:when>
+					<c:otherwise>
+						<img  src="<%=path %>/h5/img/coupon/bg_coupon_result_fail.png" style="width: 100%" />
+					</c:otherwise>
+				</c:choose>	
+				<div class="coupon">
+					<span class="price">${pageData.result.data.priceShow}</span> <br/>
+					<span class="desc">${pageData.result.data.desc}</span>
+				</div>
+				<div onclick="window.location.href='<%=path%>/h5/page/download/download.jsp'" style="position: absolute;    bottom: 5%;    width: 44%;    height: 7%;    margin-left: -22%;    left: 50%;"></div>
+			</div>
+		</c:otherwise>
+	</c:choose>
+</body>
+</html>

@@ -1,5 +1,8 @@
 package com.kellong.exhibition.console;
 
+import com.alibaba.fastjson.JSONObject;
+import com.kellonge.exhibition.business.service.event.EventService;
+import com.kellonge.exhibition.common.context.AppContext;
 import com.kellonge.exhibition.common.context.InitContext;
 
 /**
@@ -9,10 +12,12 @@ import com.kellonge.exhibition.common.context.InitContext;
 public class App {
 
 	public static void main(String[] args) {
-		InitContext.init(); 
+		InitContext.init();
 		try {
-			long b = System.currentTimeMillis();
-			  
+			long b = System.currentTimeMillis(); 
+			EventService eventService = AppContext.getBean(EventService.class);
+
+			System.out.println(JSONObject.toJSONString(eventService.getEventList(864, 0)));
 			System.out.println((System.currentTimeMillis() - b) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();

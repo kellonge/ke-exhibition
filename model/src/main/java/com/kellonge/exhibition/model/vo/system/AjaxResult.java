@@ -9,6 +9,10 @@ public class AjaxResult {
 	private Object data;
 	private int cost;
 
+	public enum Status {
+		SUCCESS, Fail, NoLogin;
+	}
+
 	public void setSuccess(Object data, String msg) {
 		this.status = Status.SUCCESS;
 		this.data = data;
@@ -18,10 +22,6 @@ public class AjaxResult {
 	public void setFail(String msg) {
 		this.status = Status.Fail;
 		this.msg = StringUtils.isNotEmpty(msg) ? msg : "操作失败";
-	}
-
-	public enum Status {
-		SUCCESS, Fail, NoLogin;
 	}
 
 	public Status getStatus() {

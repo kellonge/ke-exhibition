@@ -41,7 +41,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
 	}
 
-	public T getById(Class<T> c, Integer id) { 
+	public T getByID(Class<T> c, Integer id) { 
 		return getCurrentSession().get(c, id);
 	}
 

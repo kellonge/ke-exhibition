@@ -9,12 +9,33 @@ public interface DictService extends BaseService<SysDict> {
 
 	/**
 	 * 获取字典列表，根据编号，获取其子节点的列表。
+	 * 
 	 * @param code
 	 * @return
 	 */
 	public List<SysDict> getListByParentCode(String code);
 
-	public SysDict getDictByCode(String code);
-	
+	/**
+	 * 获取字典，根据编号
+	 * 
+	 * @param code
+	 * @return
+	 */
+	public SysDict getByCode(String code);
+
+	/**
+	 * 获取字典名称，根据ID
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public String getDictNameByID(int id);
+
+	/**
+	 * 获取字典名称，根据编号
+	 * 
+	 * @param code
+	 * @return
+	 */
+	public String getDictNameByCode(String code);
 }
