@@ -5,6 +5,13 @@
 	padding: 10px 5px;
 }
 
+.ke-top-left {
+	float: left;
+	margin-left: 8px;
+	padding-right: 26px;
+	background-size: 15px !important;
+}
+
 .ke-top-right {
 	float: right;
 }
@@ -26,7 +33,7 @@
 	width: 100%;
 }
 
-.ke-event-list-title {
+.ke-event-list-title, .ke-event-view-title {
 	font-size: 20px;
 	color: #333333;
 }
@@ -34,8 +41,96 @@
 .ke-event-list-tag div {
 	float: left;
 	border: 1px solid #999999;
-	padding: 2px;
+	padding: 4px;
 	border-radius: 4px;
 	margin-right: 10px;
 	line-height: 22px;
+}
+
+.ke-event-list-tag-like {
+	height: 16px;
+	vertical-align: middle;
+}
+
+.ke-event-view {
+	background-color: #f4f4f4;
+	color: #999999;
+}
+
+.ke-event-view-img { 
+}
+
+.ke-event-view-split {
+	height: 1px;
+	border: none;
+	background-color: #f4f4f4;
+}
+
+.ke-event-view-title, .ke-event-view-date, .ke-event-view-address {
+	height: 60px;
+	line-height: 60px;
+	margin: 0px 15px;
+}
+
+.ke-event-view-price {
+	float: right;
+}
+
+.ke-event-view-desc {
+	margin: 0px 15px;
+	line-height: 1.8em;
+}
+
+.ke-event-op {
+	background-color: #333333;
+	color: white;
+	height: 50px;
+}
+
+.ke-event-op table {
+	width: 100%;
+	top: 11px;
+	position: relative;
+}
+
+.ke-event-op table td {
+	text-align: center;
+	font-size: 20px;
+}
+
+.ke-event-op table td img {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.ke-event-view-item-wrap {
+	margin: 20px 15px;
+	background-color: white;
+}
+
+.ke-event-view-item {
+	padding-top: 15px;
+	border-bottom: 1px solid #f4f4f4;
+}
+
+.ke-event-view-item p {
+	margin: 0;
+}
+
+.ke-event-view-item-title1 {
+	font-size: 18px;
+	color: #333333;
+	border-left: 5px solid #333333;
+	padding-left: 10px;
+}
+
+.ke-event-view-item ul {
+	color: #333333;
+	padding-left: 30px;
+}
+
+.ke-event-view-item-contetn {
+	line-height: 1.8em;
+	color: #999999;
+	padding: 5px 0px;
 }

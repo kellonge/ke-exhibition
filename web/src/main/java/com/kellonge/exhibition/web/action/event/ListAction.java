@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import com.kellonge.exhibition.business.service.event.EventService;
 import com.kellonge.exhibition.business.service.system.CityService;
 import com.kellonge.exhibition.common.convert.ConvertUtil;
+import com.kellonge.exhibition.model.entity.system.SysDict;
 import com.kellonge.exhibition.web.action.base.BaseAction;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,11 +22,16 @@ public class ListAction extends BaseAction {
 
 	private Integer page = 0;
 	private Integer cityID = 864;
+	private String cityName = "";
 
 	@Override
 	public String execute() throws Exception {
 		pageData.put("city", cityService.getList());
 		pageData.put("event", eventService.getEventList(cityID, page));
+		SysDict sysDict = cityService.getByID(SysDict.class, cityID);
+		if (sysDict != null) {
+			setCityName(sysDict.getName());
+		}
 		return SUCCESS;
 
 	}
@@ -44,6 +50,14 @@ public class ListAction extends BaseAction {
 
 	public void setCityID(Integer cityID) {
 		this.cityID = cityID;
+	}
+
+	public String getCityName() {
+		return cityName;
+	}
+
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
 	}
 
 }

@@ -72,9 +72,10 @@ public class EventServiceImpl extends BaseServiceImpl<Event> implements EventSer
 				List<Map<String, Object>> attrListItemChildList = (List<Map<String, Object>>) attrListItem.get("list");
 				Map<String, Object> attrListItemChildListItem = new HashMap<String, Object>();
 				attrListItemChildListItem.put("name", rawAttr.get("name"));
-				attrListItemChildListItem.put("content", rawAttr.get("contet"));
+				attrListItemChildListItem.put("content", rawAttr.get("content"));
 				attrListItemChildList.add(attrListItemChildListItem);
 			} else {
+				attrItemName = currentAttrItemName;
 				attrListItem = new HashMap<String, Object>();
 				attrListItem.put("name", currentAttrItemName);
 				attrList.add(attrListItem);

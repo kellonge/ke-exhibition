@@ -22,7 +22,7 @@ public class ConfigUtil {
 
 	public static void load() {
 		try {
-			InputStream in = new FileInputStream(getClassPath() + "config.properties");
+			InputStream in = ConfigUtil.class.getResourceAsStream("/config.properties");
 			properties = new Properties();
 			properties.load(in);
 			imgHost = properties.getProperty("biz.img.host");

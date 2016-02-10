@@ -11,13 +11,14 @@ import com.kellonge.exhibition.common.context.InitContext;
  */
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+ 
 		InitContext.init();
 		try {
-			long b = System.currentTimeMillis(); 
+			long b = System.currentTimeMillis();
 			EventService eventService = AppContext.getBean(EventService.class);
 
-			System.out.println(JSONObject.toJSONString(eventService.getEventList(864, 0)));
+			System.out.println(JSONObject.toJSONString(eventService.getEventDetail(1)));
 			System.out.println((System.currentTimeMillis() - b) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();

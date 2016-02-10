@@ -31,6 +31,6 @@ public class CityServiceImpl extends BaseServiceImpl<SysDict> implements CitySer
 			}
 		}
 		return cityList;
-	}
+	} 
 
 }

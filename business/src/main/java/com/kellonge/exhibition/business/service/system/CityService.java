@@ -15,4 +15,5 @@ public interface CityService extends BaseService<SysDict> {
 	 * @return
 	 */
 	public List<CityItem> getList();
+
 }

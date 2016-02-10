@@ -14,11 +14,9 @@ public class ViewAction extends BaseAction {
 
 	@Override
 	public String execute() throws Exception {
-
 		Integer eventID = ConvertUtil.toInt(request.getParameter("eventID"));
 		pageData.put("event", eventService.getEventDetail(eventID));
 		return SUCCESS;
-
 	}
 
 }

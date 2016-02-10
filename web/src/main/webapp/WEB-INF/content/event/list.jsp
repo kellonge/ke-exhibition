@@ -1,7 +1,10 @@
+<%@page import="java.util.Date"%>
+<%@page import="com.kellonge.exhibition.common.date.DateUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="ke" uri="/WEB-INF/tag/elfunc.tld"%>
 <%
 	String path = request.getContextPath();
 %>
@@ -21,8 +24,9 @@
 </script>
 </head>
 <body>
+
 	<div class="ke-top-wrap">
-		<div class="ke-top-left"></div>
+		<div class="ke-top-left" style="background: url('<%=path%>/static/img/event/icon-arrow-down.png') no-repeat right center;">${cityName}</div>
 		<div class="ke-top-right">
 			<a><img src="<%=path%>/static/img/my/icon-my.png"></a>
 		</div>
@@ -32,14 +36,34 @@
 			<div class="ke-event-list-img">
 				<img src="${event.listImg}">
 			</div>
-			<div class="ke-event-list-title">${event.eventName }</div>
+			<div class="ke-event-list-title" onclick="window.location.href='<%=path%>/event/view?eventID=${event.eventID }'">${event.eventName }</div>
 			<div class="ke-event-list-subtitle">${event.venueName}&nbsp;&nbsp;●&nbsp;&nbsp;${event.eventTypeName}</div>
 			<div class="ke-event-list-tag">
 				<div>
-					<%= new Date() %>
-					<fmt:formatDate value="${event.endTime}" pattern="MM月dd日" />
+					<c:choose>
+						<c:when test="${ke:dateCompareNow(event.endTime)>=0 }">
+							<c:choose>
+								<c:when test="${ke:dateCompareNow(event.startTime)>0 }">
+									<fmt:formatDate value="${event.startTime}" pattern="开始于MM月dd日" />
+								</c:when>
+								<c:otherwise>
+									<fmt:formatDate value="${event.endTime}" pattern="截止于MM月dd日" />
+								</c:otherwise>
+							</c:choose>
+						</c:when>
+						<c:otherwise>
+							<fmt:formatDate value="${event.endTime}" pattern="结束于MM月dd日" />
+						</c:otherwise>
+					</c:choose>
 				</div>
-				<div>${event.likeCnt}人喜欢</div>
+				<div>
+					<img class="ke-event-list-tag-like" src="<%=path%>/static/img/event/icon-like-small.png">
+					<c:choose>
+						<c:when test="${event.likeCnt<=0}">1</c:when>
+						<c:otherwise> ${event.likeCnt}</c:otherwise>
+					</c:choose>
+					人喜欢
+				</div>
 				<div style="float: right;">
 					<c:choose>
 						<c:when test="${event.price<=0 }">免费</c:when>
