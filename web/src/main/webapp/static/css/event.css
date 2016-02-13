@@ -3,6 +3,7 @@
 .ke-top-wrap {
 	height: 25px;
 	padding: 10px 5px;
+	font-size: 16px;
 }
 
 .ke-top-left {
@@ -40,9 +41,9 @@
 
 .ke-event-list-tag div {
 	float: left;
-	border: 1px solid #999999;
-	padding: 4px;
-	border-radius: 4px;
+	border: 1px solid #cccccc;
+	padding: 2px 3px 2px 3px;
+	border-radius: 2px;
 	margin-right: 10px;
 	line-height: 22px;
 }
@@ -57,7 +58,8 @@
 	color: #999999;
 }
 
-.ke-event-view-img { 
+.ke-event-view-img {
+	
 }
 
 .ke-event-view-split {

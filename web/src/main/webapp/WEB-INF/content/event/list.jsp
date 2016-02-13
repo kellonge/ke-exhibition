@@ -33,11 +33,13 @@
 	</div>
 	<c:forEach items="${pageData.event}" var="event">
 		<div class="ke-event-list">
-			<div class="ke-event-list-img">
-				<img src="${event.listImg}">
+			<div class="ke-event-list-click-wrap" onclick="window.location.href='<%=path%>/event/view?eventID=${event.eventID }'">
+				<div class="ke-event-list-img">
+					<img src="${event.listImg}">
+				</div>
+				<div class="ke-event-list-title">${event.eventName }</div>
+				<div class="ke-event-list-subtitle">${event.venueName}&nbsp;&nbsp;●&nbsp;&nbsp;${event.eventTypeName}</div>
 			</div>
-			<div class="ke-event-list-title" onclick="window.location.href='<%=path%>/event/view?eventID=${event.eventID }'">${event.eventName }</div>
-			<div class="ke-event-list-subtitle">${event.venueName}&nbsp;&nbsp;●&nbsp;&nbsp;${event.eventTypeName}</div>
 			<div class="ke-event-list-tag">
 				<div>
 					<c:choose>
