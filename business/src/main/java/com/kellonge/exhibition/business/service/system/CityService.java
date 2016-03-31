@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kellonge.exhibition.business.service.base.BaseService;
 import com.kellonge.exhibition.model.entity.system.SysDict;
-import com.kellonge.exhibition.model.vo.system.city.CityItem;
+import com.kellonge.exhibition.model.vo.city.CityItem;
 
 public interface CityService extends BaseService<SysDict> {
 

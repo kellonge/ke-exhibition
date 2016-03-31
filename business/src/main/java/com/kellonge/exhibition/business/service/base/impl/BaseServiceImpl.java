@@ -12,6 +12,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 
 import com.kellonge.exhibition.business.service.base.BaseService;
+import com.kellonge.exhibition.common.convert.ConvertUtil;
 
 public class BaseServiceImpl<T> implements BaseService<T> {
 
@@ -41,7 +42,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
 	}
 
-	public T getByID(Class<T> c, Integer id) { 
+	public T getByID(Class<T> c, Integer id) {
 		return getCurrentSession().get(c, id);
 	}
 
@@ -105,7 +106,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 				query.setParameter(i, params[i]);
 			}
 		}
-		return (Long) query.uniqueResult();
+		return ConvertUtil.toLong(query.uniqueResult());
 	}
 
 }

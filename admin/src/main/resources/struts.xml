@@ -15,20 +15,9 @@
 	<!-- 指定每次配置文件更改后，自动重新加载 -->
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<!-- 默认后缀名 -->
-	<constant name="struts.action.extension" value="do,action,jhtml,," />
+	<constant name="struts.action.extension" value="do,action,jhtml," />
 	<!-- Struts Annotation -->
 	<constant name="actionPackages" value="org.chinasb.framework.modules" />
-
-
-	<package name="ajax" extends="json-default">
-		<global-results>
-			<result name="root" type="json">
-				<param name="root">resultVo</param>
-			</result>
-		</global-results>
-		<global-exception-mappings>
-			<exception-mapping exception="java.lang.Exception"
-				result="root" />
-		</global-exception-mappings>
-	</package>
+	<!-- 静态文件不需要过滤 -->
+	<constant name="struts.action.excludePattern" value="/static/.*" />
 </struts>

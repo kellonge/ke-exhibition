@@ -43,7 +43,7 @@
 			</div>
 		</div>
 		<div class="ke-event-view-split"></div>
-		<div class="ke-event-view-address " style="background: url('<%=path%>/static/img/event/icon-arrow-right.png')  no-repeat right center;     background-size: 10px;">${pageData.event.address}</div>
+		<div class="ke-event-view-address " onclick="window.location.href='${pageData.event.addressUrl}'" style="background: url('<%=path%>/static/img/event/icon-arrow-right.png')  no-repeat right center;     background-size: 10px;">${pageData.event.address}</div>
 	</div>
 	<div class="ke-event-view-desc">
 		<img style="width: 200px; margin: 20px auto; display: block;" src="<%=path%>/static/img/event/event-detail-desc-title.png"> ${pageData.event.eventDesc}
@@ -55,8 +55,8 @@
 				<ul>
 					<c:forEach items="${leve1.list }" var="leve2">
 						<li>
-							<p  class="ke-event-view-item-title2">${leve2.name }</p>
-							<p  class="ke-event-view-item-contetn">${leve2.content }</p>
+							<p class="ke-event-view-item-title2">${leve2.name }</p>
+							<p class="ke-event-view-item-contetn">${leve2.content }</p>
 						</li>
 					</c:forEach>
 				</ul>

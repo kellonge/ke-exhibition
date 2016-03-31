@@ -13,6 +13,16 @@
 	<name>admin</name>
 	<dependencies>
 		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
 			<groupId>com.kellonge</groupId>
 			<artifactId>common</artifactId>
 			<version>1.0.0</version>
@@ -65,7 +75,7 @@
 					<include>**/*.properties</include>
 				</includes>
 				<filtering>true</filtering>
-			</resource>	
+			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
@@ -73,7 +83,7 @@
 					<include>**/*.properties</include>
 				</includes>
 				<filtering>true</filtering>
-			</resource>			
+			</resource>
 		</resources>
 		<plugins>
 			<plugin>

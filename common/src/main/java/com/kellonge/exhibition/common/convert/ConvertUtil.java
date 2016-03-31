@@ -38,6 +38,11 @@ public class ConvertUtil {
 		return date;
 	}
 
+	public static String toDateString(Date date) {
+		SimpleDateFormat formatDateTime = new SimpleDateFormat("yyyy-MM-dd");
+		return formatDateTime.format(date);
+	}
+
 	public static String toString(Object obj) {
 		if (obj == null)
 			return "";

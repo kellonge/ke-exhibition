@@ -12,7 +12,7 @@ import com.kellonge.exhibition.business.service.base.impl.BaseServiceImpl;
 import com.kellonge.exhibition.business.service.system.CityService;
 import com.kellonge.exhibition.business.service.system.DictService;
 import com.kellonge.exhibition.model.entity.system.SysDict;
-import com.kellonge.exhibition.model.vo.system.city.CityItem;
+import com.kellonge.exhibition.model.vo.city.CityItem;
 
 @Repository("cityService")
 public class CityServiceImpl extends BaseServiceImpl<SysDict> implements CityService {
