@@ -1,5 +1,3 @@
-ass
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -12,19 +10,18 @@ ass
 hs_err_pid*
 
 # maven
-/target
-*/target
+target/
 
 #eclipse
-/.classpath
-*/.classpath
-/.project
-*/.project
-/.settings
-*/.settings
-/.metadata
-*/.metadata
+.classpath
+.project
+.settings
+.metadata
 
 #ios
-/.DS_Store
-*/.DS_Store
+.DS_Store
+
+
+#tomcat pulgin
+.tomcatplugin
+WEB-INF/
