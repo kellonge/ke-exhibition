@@ -10,16 +10,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext*.xml</param-value>
 	</context-param>
-	<!-- HttpContext -->
-	<filter>
-		<filter-name>HttpContext</filter-name>
-		<filter-class>com.kellonge.exhibition.common.context.HttpContext
-		</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>HttpContext</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 	<!-- struts2 -->
 	<filter>
 		<filter-name>struts2</filter-name>

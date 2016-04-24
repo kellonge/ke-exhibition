@@ -25,3 +25,4 @@ target/
 #tomcat pulgin
 .tomcatplugin
 WEB-INF/
+work/
